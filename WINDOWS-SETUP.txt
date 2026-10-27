@@ -1,0 +1,144 @@
+═══════════════════════════════════════════════════════════════
+  TASKFLOW - WINDOWS SETUP (Step by Step)
+═══════════════════════════════════════════════════════════════
+
+⚠️  PATH ISSUE: Aap ke path mein SPACE hai ("final task internship")
+    Ye issue create kar sakti hai. Better hai folder rename karein:
+    
+    "final task internship" → "final-task-internship"
+    
+    Ya phir folder ko C: drive mein move karein:
+    C:\taskflow-app
+
+═══════════════════════════════════════════════════════════════
+
+OPTION 1: FOLDER RENAME KAREIN (RECOMMENDED)
+═══════════════════════════════════════════════════════════════
+
+1. Folder "final task internship" ko rename karein as "final-task-internship"
+2. Phir commands run karein
+
+═══════════════════════════════════════════════════════════════
+
+OPTION 2: MANUAL SETUP (Current Location Se)
+═══════════════════════════════════════════════════════════════
+
+STEP 1: PowerShell kholen AS ADMINISTRATOR
+
+STEP 2: Backend Dependencies Install
+────────────────────────────────────
+cd "C:\Users\USer\Desktop\final task internship\taskflow-app\backend"
+npm install --force
+
+WAIT karein... 3-5 minutes lagenge.
+
+STEP 3: Frontend Dependencies Install
+────────────────────────────────────
+cd "C:\Users\USer\Desktop\final task internship\taskflow-app\frontend"
+npm install --force
+
+WAIT karein... 2-3 minutes lagenge.
+
+STEP 4: Backend .env File Setup
+────────────────────────────────
+Navigate: taskflow-app\backend\
+Copy: .env.example → .env
+Edit .env:
+
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/taskflow"
+JWT_SECRET="koi-bhi-32-characters-se-zyada-string"
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL="http://localhost:5173"
+
+STEP 5: Frontend .env File Setup
+────────────────────────────────
+Navigate: taskflow-app\frontend\
+Copy: .env.example → .env
+
+(Already correct hai, koi change nahi chahiye)
+
+STEP 6: PostgreSQL Check
+────────────────────────────────
+1. Win + R press karein
+2. Type: services.msc
+3. "postgresql" search karein
+4. Agar stopped hai to RIGHT CLICK → START karein
+
+Agar PostgreSQL install nahi hai:
+Download: https://www.postgresql.org/download/windows/
+
+STEP 7: Prisma Setup
+────────────────────────────────
+cd "C:\Users\USer\Desktop\final task internship\taskflow-app\backend"
+npx prisma generate
+npx prisma migrate dev --name init
+npx prisma db seed
+
+STEP 8: Start Backend
+────────────────────────────────
+TERMINAL 1 mein:
+cd "C:\Users\USer\Desktop\final task internship\taskflow-app\backend"
+npm run dev
+
+WAIT jab tak ye dikhe:
+  🚀 Server running on port 5000
+  📡 WebSocket server ready
+
+STEP 9: Start Frontend
+────────────────────────────────
+TERMINAL 2 (NEW) mein:
+cd "C:\Users\USer\Desktop\final task internship\taskflow-app\frontend"
+npm run dev
+
+WAIT jab tak ye dikhe:
+  ➜  Local:   http://localhost:5173/
+
+STEP 10: Browser Kholen
+────────────────────────────────
+http://localhost:5173
+
+Login:
+Email: admin@taskflow.com
+Password: demo123
+
+═══════════════════════════════════════════════════════════════
+
+ERRORS KA SOLUTION:
+═══════════════════════════════════════════════════════════════
+
+❌ npm install error (path issue):
+   → Folder naam se space hatayein
+   → Ya --force flag use karein: npm install --force
+
+❌ "Cannot find PostgreSQL":
+   → Services mein check karein
+   → Start karein service ko
+
+❌ "Port 5000 already in use":
+   → Task Manager kholen
+   → Node.js process ko end karein
+
+❌ "Prisma client not generated":
+   → npx prisma generate phir se run karein
+
+❌ Path issue (spaces):
+   → Folder move karein C:\taskflow-app
+   → Ya rename karein (spaces hata kar)
+
+═══════════════════════════════════════════════════════════════
+
+BEST SOLUTION: Folder Ko C:\ Drive Mein Move Karein
+═══════════════════════════════════════════════════════════════
+
+1. taskflow-app folder ko COPY karein
+2. C:\ drive mein PASTE karein
+3. Path ban jayegi: C:\taskflow-app\
+4. Wahan se commands run karein (spaces nahi honge)
+
+═══════════════════════════════════════════════════════════════
+
+Need Help? Mujhe batayein!
+
+Email me output agar koi error aaye.
+═══════════════════════════════════════════════════════════════

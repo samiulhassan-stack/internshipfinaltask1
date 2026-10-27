@@ -1,0 +1,21 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+coverage/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Frontend specific
+frontend/dist/
+frontend/build/
+
+# Backend specific
+backend/dist/
+
+# Database
+*.db
+*.sqlite
