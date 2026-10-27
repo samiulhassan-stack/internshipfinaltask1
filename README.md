@@ -325,9 +325,9 @@ MIT License - feel free to use this project as inspiration for your own learning
 
 ## 🔗 Links
 
-- **Live Demo**: [https://taskflow-demo.vercel.app](https://taskflow-demo.vercel.app)
-- **API Documentation**: [https://taskflow-api.railway.app/docs](https://taskflow-api.railway.app/docs)
-- **GitHub**: [https://github.com/yourusername/taskflow-app](https://github.com/yourusername/taskflow-app)
+- **GitHub Repository**: [https://github.com/samiulhassan-stack/internshipfinaltask1](https://github.com/samiulhassan-stack/internshipfinaltask1)
+- **Live Demo**: Coming soon (Deploy to Vercel/Railway)
+- **Demo Credentials**: admin@taskflow.com / demo123
 
 ---
 

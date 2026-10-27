@@ -499,9 +499,9 @@ npm test
 
 ## 🔗 Links & Resources
 
-- **Live Demo:** [https://taskflow-demo.vercel.app](https://taskflow-demo.vercel.app)
-- **GitHub Repository:** [https://github.com/yourusername/taskflow-app](https://github.com/yourusername/taskflow-app)
-- **API Documentation:** [DEPLOYMENT.md](./DEPLOYMENT.md)
+- **GitHub Repository:** [https://github.com/samiulhassan-stack/internshipfinaltask1](https://github.com/samiulhassan-stack/internshipfinaltask1)
+- **Live Demo:** Coming soon (Deploy to production)
+- **Documentation:** See repository for 21+ comprehensive guides
 
 ### Demo Credentials
 
