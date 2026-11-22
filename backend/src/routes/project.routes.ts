@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { authenticate, AuthRequest } from '../middleware/auth.middleware';
-import { ProjectRole } from '@prisma/client';
 
 const router = Router();
 router.use(authenticate);
@@ -125,7 +124,7 @@ router.post('/', async (req: AuthRequest, res, next) => {
         members: {
           create: {
             userId: req.userId!,
-            role: ProjectRole.ADMIN,
+            role: 'ADMIN',
           },
         },
       },
@@ -161,7 +160,7 @@ router.put('/:id', async (req: AuthRequest, res, next) => {
       where: {
         projectId: req.params.id,
         userId: req.userId,
-        role: { in: [ProjectRole.ADMIN, ProjectRole.MANAGER] },
+        role: { in: ['ADMIN', 'MANAGER'] },
       },
     });
 
@@ -202,7 +201,7 @@ router.delete('/:id', async (req: AuthRequest, res, next) => {
       where: {
         projectId: req.params.id,
         userId: req.userId,
-        role: ProjectRole.ADMIN,
+        role: 'ADMIN',
       },
     });
 
@@ -230,7 +229,7 @@ router.post('/:id/members', async (req: AuthRequest, res, next) => {
       where: {
         projectId: req.params.id,
         userId: req.userId,
-        role: { in: [ProjectRole.ADMIN, ProjectRole.MANAGER] },
+        role: { in: ['ADMIN', 'MANAGER'] },
       },
     });
 
@@ -242,7 +241,7 @@ router.post('/:id/members', async (req: AuthRequest, res, next) => {
       data: {
         projectId: req.params.id,
         userId,
-        role: role as ProjectRole,
+        role: role,
       },
       include: {
         user: {

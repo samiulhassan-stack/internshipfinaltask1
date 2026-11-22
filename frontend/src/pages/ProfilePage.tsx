@@ -56,7 +56,7 @@ export default function ProfilePage() {
                 Member Since
               </label>
               <p className="text-gray-900 dark:text-white">
-                {format(new Date(user.createdAt), 'MMMM d, yyyy')}
+                {user.createdAt ? format(new Date(user.createdAt), 'MMMM d, yyyy') : 'N/A'}
               </p>
             </div>
           </div>

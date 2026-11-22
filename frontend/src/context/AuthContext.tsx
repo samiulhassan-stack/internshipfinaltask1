@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import axios from 'axios';
 import { api } from '../lib/api';
 
 interface User {
@@ -7,6 +6,7 @@ interface User {
   email: string;
   name: string;
   avatar?: string;
+  createdAt?: string;
 }
 
 interface AuthContextType {
